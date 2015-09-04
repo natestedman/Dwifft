@@ -12,7 +12,7 @@ import UIKit
 public enum ArrayDiffResult : DebugPrintable {
     case Insert(Int)
     case Delete(Int)
-    var isInsertion: Bool {
+    public var isInsertion: Bool {
         switch(self) {
         case .Insert(let i):
             return true
@@ -28,7 +28,7 @@ public enum ArrayDiffResult : DebugPrintable {
             return "-\(i)"
         }
     }
-    var idx: Int {
+    public var idx: Int {
         switch(self) {
         case .Insert(let i):
             return i
