@@ -132,4 +132,86 @@ class DwifftTests: XCTestCase {
         waitForExpectationsWithTimeout(1.0, handler: nil)
     }
     
+    func testArrayDiffCalculatorOnCollectionView() {
+        
+        class TestCollectionView: UICollectionView {
+            
+            let insertionExpectations: [Int: XCTestExpectation]
+            let deletionExpectations: [Int: XCTestExpectation]
+            
+            init(insertionExpectations: [Int: XCTestExpectation], deletionExpectations: [Int: XCTestExpectation]) {
+                self.insertionExpectations = insertionExpectations
+                self.deletionExpectations = deletionExpectations
+                super.init(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+            }
+            
+            required init?(coder aDecoder: NSCoder) {
+                fatalError("not implemented")
+            }
+            
+            private override func insertItemsAtIndexPaths(indexPaths: [NSIndexPath]) {
+                let nsIndexPaths = indexPaths
+                for indexPath in nsIndexPaths {
+                    self.insertionExpectations[indexPath.item]!.fulfill()
+                }
+            }
+            
+            private override func deleteItemsAtIndexPaths(indexPaths: [NSIndexPath]) {
+                let nsIndexPaths = indexPaths
+                for indexPath in nsIndexPaths {
+                    self.deletionExpectations[indexPath.item]!.fulfill()
+                }
+            }
+            
+        }
+        
+        class TestViewController: UIViewController, UICollectionViewDataSource {
+            
+            let collectionView: TestCollectionView
+            let diffCalculator: CollectionViewDiffCalculator<Int>
+            var items: [Int] {
+                didSet {
+                    self.diffCalculator.items = items
+                }
+            }
+            
+            init(collectionView: TestCollectionView, items: [Int]) {
+                self.collectionView = collectionView
+                self.diffCalculator = CollectionViewDiffCalculator<Int>(collectionView: collectionView, initialItems: items)
+                self.items = items
+                super.init(nibName: nil, bundle: nil)
+            }
+            
+            required init?(coder aDecoder: NSCoder) {
+                fatalError("not implemented")
+            }
+            
+            @objc func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+                return UICollectionViewCell()
+            }
+            
+            @objc func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+                return items.count
+            }
+            
+        }
+        
+        var insertionExpectations: [Int: XCTestExpectation] = [:]
+        for i in [0, 3, 4, 5] {
+            let x: XCTestExpectation = expectationWithDescription("+\(i)")
+            insertionExpectations[i] = x
+        }
+        
+        var deletionExpectations: [Int: XCTestExpectation] = [:]
+        for i in [0, 1, 2, 4] {
+            let x: XCTestExpectation = expectationWithDescription("+\(i)")
+            deletionExpectations[i] = x
+        }
+        
+        let collectionView = TestCollectionView(insertionExpectations: insertionExpectations, deletionExpectations: deletionExpectations)
+        let viewController = TestViewController(collectionView: collectionView, items: [0, 1, 2, 5, 8, 9, 0])
+        viewController.items = [4, 5, 9, 8, 3, 1, 0]
+        waitForExpectationsWithTimeout(1.0, handler: nil)
+    }
+    
 }

@@ -14,6 +14,8 @@
 		041EBBB11B8967C300E113B3 /* LCS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EBBAE1B8967C300E113B3 /* LCS.swift */; };
 		041EBBB21B8967C300E113B3 /* TableViewDiffCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EBBAF1B8967C300E113B3 /* TableViewDiffCalculator.swift */; };
 		041EBBB31B8967C300E113B3 /* TableViewDiffCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EBBAF1B8967C300E113B3 /* TableViewDiffCalculator.swift */; };
+		437BA4281BAD9EE8003D73D4 /* CollectionViewDiffCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BA4271BAD9EE8003D73D4 /* CollectionViewDiffCalculator.swift */; settings = {ASSET_TAGS = (); }; };
+		437BA42A1BADB1BE003D73D4 /* CollectionViewDiffCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BA4271BAD9EE8003D73D4 /* CollectionViewDiffCalculator.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 		041EBBA41B89679200E113B3 /* DwifftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DwifftTests.swift; sourceTree = "<group>"; };
 		041EBBAE1B8967C300E113B3 /* LCS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCS.swift; sourceTree = "<group>"; };
 		041EBBAF1B8967C300E113B3 /* TableViewDiffCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDiffCalculator.swift; sourceTree = "<group>"; };
+		437BA4271BAD9EE8003D73D4 /* CollectionViewDiffCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDiffCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,7 @@
 			children = (
 				041EBB971B89679200E113B3 /* Dwifft.h */,
 				041EBBAE1B8967C300E113B3 /* LCS.swift */,
+				437BA4271BAD9EE8003D73D4 /* CollectionViewDiffCalculator.swift */,
 				041EBBAF1B8967C300E113B3 /* TableViewDiffCalculator.swift */,
 				041EBB951B89679200E113B3 /* Supporting Files */,
 			);
@@ -220,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041EBBB21B8967C300E113B3 /* TableViewDiffCalculator.swift in Sources */,
+				437BA4281BAD9EE8003D73D4 /* CollectionViewDiffCalculator.swift in Sources */,
 				041EBBB01B8967C300E113B3 /* LCS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +236,7 @@
 				041EBBB11B8967C300E113B3 /* LCS.swift in Sources */,
 				041EBBA51B89679200E113B3 /* DwifftTests.swift in Sources */,
 				041EBBB31B8967C300E113B3 /* TableViewDiffCalculator.swift in Sources */,
+				437BA42A1BADB1BE003D73D4 /* CollectionViewDiffCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
